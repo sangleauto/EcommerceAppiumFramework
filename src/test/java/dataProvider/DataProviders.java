@@ -1,26 +1,32 @@
 package dataProvider;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import commonTest.DataHelper;
-import model.FormDataPOJO;
 import org.testng.annotations.DataProvider;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
-public class DataProviders{
+public class DataProviders {
 
     @DataProvider(name = "fillFormData")
-    public Object[][] provideFillFormData(){
+    public Object[][] provideFillFormData() {
         String jsonStr = DataHelper.getStringJson("src/test/resources/data/FillForm.json");
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            FormDataPOJO[] formDataArr = objectMapper.readValue(jsonStr, FormDataPOJO[].class);
-            Object[][] data = new Object[formDataArr.length][3];
-            for(int i = 0; i<formDataArr.length;i++){
-                data[i][0] = formDataArr[i].getName();
-                data[i][1] = formDataArr[i].getCountry();
-                data[i][2] = formDataArr[i].getGender();
+            List<LinkedHashMap<String, Object>> formDataList = objectMapper.readValue(jsonStr, new TypeReference<>() {
+            });
+            String[] keys = formDataList.getFirst().keySet().toArray(new String[0]);
+            Object[][] data = new Object[formDataList.size()][keys.length];
+            for (int i = 0; i < formDataList.size(); i++) {
+                Map<String, Object> formData = formDataList.get(i);
+                for (int j = 0; j < keys.length; j++) {
+                    data[i][j] = formData.get(keys[j]);
+                }
             }
             return data;
         } catch (IOException e) {

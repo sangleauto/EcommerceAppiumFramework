@@ -4,6 +4,7 @@ import commonTest.BaseTest;
 import dataProvider.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CartPage;
 import pages.ProductPage;
 
 public class TestDynamicData extends BaseTest {
@@ -15,9 +16,9 @@ public class TestDynamicData extends BaseTest {
 
         ProductPage productPage = homePage.clickLetsShop();
         Assert.assertTrue(productPage.isProductPagePresent(), "Product page is not present as expected");
-//        productPage.addAllItemsToCart();
-//        double expectedAmount = productPage.getTotalAmountOfAddedItems();
-//        CartPage cartPage = productPage.clickOpenCart();
-//        Assert.assertTrue(cartPage.isTotalAmountCorrect(expectedAmount), "Total Purchase Amount is not correct");
+        productPage.addAllItemsToCart();
+        double expectedAmount = productPage.getTotalAmountOfAddedItems();
+        CartPage cartPage = productPage.clickOpenCart();
+        Assert.assertTrue(cartPage.isTotalAmountCorrect(expectedAmount), "Total Purchase Amount is not correct");
     }
 }
