@@ -20,7 +20,7 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "com.androidsample.generalstore:id/btnLetsShop")
     private WebElement btn_letsShop;
 
-    private static final String BTN_DYNAMIC_COUNTRY_ID = "//android.widget.TextView[@text=\"%s\"]";
+    private static final String BTN_DYNAMIC_COUNTRY_XPATH = "android.widget.TextView[@text=\"%s\"]";
     private static final String CHK_DYNAMIC_GENDER_ID = "com.androidsample.generalstore:id/radio%s";
 
     public HomePage fillName(String name) {
@@ -31,7 +31,7 @@ public class HomePage extends BasePage {
     public HomePage selectCountry(String country) {
         select_country.click();
         scrollGesture(country);
-        WebElement btn_country = findDynamicElementById(BTN_DYNAMIC_COUNTRY_ID, country);
+        WebElement btn_country = findDynamicElementByXpath(BTN_DYNAMIC_COUNTRY_XPATH, country);
         btn_country.click();
         return this;
     }
@@ -42,8 +42,8 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage clickLetsShop() {
+    public ProductPage clickLetsShop() {
         btn_letsShop.click();
-        return this;
+        return new ProductPage(driver);
     }
 }

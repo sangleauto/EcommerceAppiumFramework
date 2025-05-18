@@ -88,4 +88,8 @@ public class BasePage {
         return driver.findElement(By.id(locator));
     }
 
+    protected WebElement findDynamicElementByXpath(String locatorTemplate, String value) {
+        String locator = "//" + String.format(locatorTemplate, value);
+        return driver.findElement(By.xpath(locator));
+    }
 }

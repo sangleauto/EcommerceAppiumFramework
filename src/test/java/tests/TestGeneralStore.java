@@ -4,17 +4,22 @@ import commonTest.BaseTest;
 import commonTest.DataHelper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CartPage;
 import pages.HomePage;
 import pages.ProductPage;
 
 public class TestGeneralStore extends BaseTest {
-    @Test
+    @Test(priority = 1)
     public void testFillFormToStartShopping() {
-        HomePage homePage = new HomePage(driver);
         homePage.fillName(DataHelper.generateRandomName())
                 .selectCountry("Belgium")
-                .checkGender(DataHelper.generateRandomGender())
-                .clickLetsShop();
-        Assert.assertTrue(new ProductPage(driver).isProductPagePresent(), "Product page is not present as expected");
+                .checkGender(DataHelper.generateRandomGender());
+
+        ProductPage productPage = homePage.clickLetsShop();
+        Assert.assertTrue(productPage.isProductPagePresent(), "Product page is not present as expected");
+        productPage.addAllItemsToCart();
+        double expectedAmount = productPage.getTotalAmountOfAddedItems();
+        CartPage cartPage = productPage.clickOpenCart();
+        Assert.assertTrue(cartPage.isTotalAmountCorrect(expectedAmount), "Total Purchase Amount is not correct");
     }
 }
