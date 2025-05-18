@@ -2,6 +2,8 @@ package tests;
 
 import commonTest.BaseTest;
 import commonTest.DataHelper;
+import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
@@ -10,6 +12,12 @@ import pages.ProductPage;
 
 public class TestGeneralStore extends BaseTest {
     @Test(priority = 1)
+    public void testVerifyToastMessage() {
+        homePage.clickLetsShop();
+        Assert.assertEquals(homePage.getToastMessage(), "Please enter your name");
+    }
+
+    @Test(priority = 2)
     public void testFillFormToStartShopping() {
         homePage.fillName(DataHelper.generateRandomName())
                 .selectCountry("Belgium")

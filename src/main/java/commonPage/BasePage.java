@@ -2,6 +2,7 @@ package commonPage;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
@@ -14,9 +15,9 @@ import java.time.Duration;
 import java.util.Map;
 
 public class BasePage {
-    protected AndroidDriver driver;
+    protected AppiumDriver driver;
 
-    public BasePage(AndroidDriver driver) {
+    public BasePage(AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(10)), this);
     }

@@ -1,6 +1,7 @@
 package pages;
 
 import commonPage.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class CartPage extends BasePage {
 
-    public CartPage(AndroidDriver driver) {
+    public CartPage(AppiumDriver driver) {
         super(driver);
     }
 

@@ -14,6 +14,9 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "com.androidsample.generalstore:id/nameField")
     private WebElement input_name;
 
+    @AndroidFindBy(xpath = "//android.widget.Toast[1]")
+    private WebElement lbl_toastMessage;
+
     @AndroidFindBy(id = "com.androidsample.generalstore:id/spinnerCountry")
     private WebElement select_country;
 
@@ -26,6 +29,10 @@ public class HomePage extends BasePage {
     public HomePage fillName(String name) {
         input_name.sendKeys(name);
         return this;
+    }
+
+    public String getToastMessage() {
+        return lbl_toastMessage.getDomAttribute("name");
     }
 
     public HomePage selectCountry(String country) {
