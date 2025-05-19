@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel Test Suite" parallel="tests" thread-count="2">
+    <test name="Pixel_6a">
+        <parameter name="deviceName" value="Pixel_6a"/>
+        <classes>
+            <class name="tests.TestGeneralStore">
+                <methods>
+                    <include name="testVerifyToastMessage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Pixel_8">
+        <parameter name="deviceName" value="Pixel_8"/>
+        <classes>
+            <class name="tests.TestGeneralStore">
+                <methods>
+                    <include name="testVerifyToastMessage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

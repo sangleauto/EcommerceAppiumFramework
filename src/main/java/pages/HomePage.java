@@ -1,13 +1,14 @@
 package pages;
 
 import commonPage.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage {
 
-    public HomePage(AndroidDriver driver) {
+    public HomePage(AppiumDriver driver) {
         super(driver);
     }
 
