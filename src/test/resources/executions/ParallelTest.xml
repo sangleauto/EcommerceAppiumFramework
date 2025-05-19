@@ -17,7 +17,7 @@
         <classes>
             <class name="tests.TestGeneralStore">
                 <methods>
-                    <include name="testVerifyToastMessage"/>
+                    <include name="testFillFormToStartShopping"/>
                 </methods>
             </class>
         </classes>
