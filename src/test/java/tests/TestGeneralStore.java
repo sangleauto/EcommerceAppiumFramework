@@ -1,13 +1,10 @@
 package tests;
 
+import commonPage.DataHelper;
 import commonTest.BaseTest;
-import commonTest.DataHelper;
-import io.appium.java_client.AppiumBy;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
-import pages.HomePage;
 import pages.ProductPage;
 
 public class TestGeneralStore extends BaseTest {

@@ -2,7 +2,7 @@ package dataProvider;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import commonTest.DataHelper;
+import commonPage.DataHelper;
 import org.testng.annotations.DataProvider;
 
 import java.io.IOException;

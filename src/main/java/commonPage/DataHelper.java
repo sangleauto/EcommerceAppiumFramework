@@ -1,4 +1,4 @@
-package commonTest;
+package commonPage;
 
 import net.datafaker.Faker;
 

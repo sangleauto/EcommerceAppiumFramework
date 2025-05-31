@@ -5,7 +5,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DriverConfig {
+public class OptionsConfig {
     private static final String APP_PACKAGE = "com.androidsample.generalstore";
     private static final String APP_ACTIVITY = "com.androidsample.generalstore.SplashActivity";
     private static final Map<String, UiAutomator2Options> deviceOptions = new HashMap<>();
